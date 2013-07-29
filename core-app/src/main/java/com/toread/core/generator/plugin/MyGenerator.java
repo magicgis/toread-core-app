@@ -11,5 +11,4 @@ public class MyGenerator  extends PluginAdapter{
 		// TODO Auto-generated method stub
 		return false;
 	}
-
 }
