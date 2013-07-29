@@ -199,6 +199,9 @@
       	  <groupId>org.mybatis.generator</groupId>
       	  <artifactId>mybatis-generator-maven-plugin</artifactId>
           <version>${org.mybatis.generator.version}</version>
+          <configuration>
+          	<overwrite>true</overwrite>
+    			</configuration>
         </plugin>
 		</plugins>
 		
