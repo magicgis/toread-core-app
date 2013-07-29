@@ -37,7 +37,7 @@
     </javaClientGenerator>
     
 		<!--coreAccount生成  -->
-		<table   tableName="coreaccount" domainObjectName="coreAccount">
+		<table   tableName="coreaccount" domainObjectName="CoreAccount">
 			<generatedKey column="account_unid" sqlStatement="MySql" identity="true"/>
 		</table>
   </context>
