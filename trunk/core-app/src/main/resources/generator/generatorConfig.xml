@@ -5,9 +5,13 @@
 
 <generatorConfiguration>
   <classPathEntry location="C:\Users\Administrator\.m2\repository\mysql\mysql-connector-java\5.1.15\mysql-connector-java-5.1.15.jar" />
-
-  <context id="coreApp" targetRuntime="MyBatis3">
-  	
+  <context id="coreApp" targetRuntime="MyBatis3" >
+  
+  	<property name="javaFileEncoding" value="utf-8"/>
+  	<!-- 未来配置的地方 
+  	<property name="javaFormatter" value="utf-8"/>
+  	<property name="xmlFormatter" value=""/>
+  	-->
 		<commentGenerator> 
 			<property name="suppressAllComments" value="true" /> 
 		</commentGenerator>
