@@ -1,0 +1,15 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation="
+     http://www.springframework.org/schema/beans 
+     http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+		<bean id="coreAccountDao" class="com.toread.core.persistence.CoreAccountDao">
+				<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+		</bean>
+		<bean id="coreResourcesDao" class="com.toread.core.persistence.CoreResourcesDao">
+				<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+		</bean>
+		<bean id="coreRolesDao" class="com.toread.core.persistence.CoreRolesDao">
+				<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+		</bean>
+	</beans>

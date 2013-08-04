@@ -41,8 +41,20 @@
     </javaClientGenerator>
     
 		<!--CoreAccount生成  -->
-		<table   tableName="coreaccount" domainObjectName="CoreAccount">
-			<generatedKey column="account_unid" sqlStatement="MySql" identity="true"/>
+		<table   tableName="core_account" domainObjectName="CoreAccount">
+			<generatedKey column="account_id" sqlStatement="MySql" identity="true"/>
+		</table>
+		<table   tableName="core_user_roles" domainObjectName="CoreUserRoles">
+			<generatedKey column="account_roles_id" sqlStatement="MySql" identity="true"/>
+		</table>
+		<table   tableName="core_roles" domainObjectName="CoreRoles">
+			<generatedKey column="rolse_id" sqlStatement="MySql" identity="true"/>
+		</table>
+		<table   tableName="core_roles_resources" domainObjectName="CoreRolesResources">
+			<generatedKey column="roles_resources_id" sqlStatement="MySql" identity="true"/>
+		</table>
+		<table   tableName="core_resources" domainObjectName="CoreResources">
+			<generatedKey column="resources_id" sqlStatement="MySql" identity="true"/>
 		</table>
   </context>
 </generatorConfiguration>
