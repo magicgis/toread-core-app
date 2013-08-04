@@ -1,55 +1,55 @@
 package com.toread.core.domain;
 
-import java.math.BigDecimal;
+import java.util.List;
 
 public class CoreAccount {
-    private BigDecimal accountUnid;
+    private Integer accountId;
 
-    private String accountUuid;
+    private String accountCode;
 
-    private String code;
+    private String accountPassword;
 
-    private String password;
+    private Integer accountEnable;
 
-    private Integer accountState;
+    private List<CoreRoles> coreRoles;
+    
+    public List<CoreRoles> getCoreRoles() {
+		return coreRoles;
+	}
 
-    public BigDecimal getAccountUnid() {
-        return accountUnid;
+	public void setCoreRoles(List<CoreRoles> coreRoles) {
+		this.coreRoles = coreRoles;
+	}
+
+	public Integer getAccountId() {
+        return accountId;
     }
 
-    public void setAccountUnid(BigDecimal accountUnid) {
-        this.accountUnid = accountUnid;
+    public void setAccountId(Integer accountId) {
+        this.accountId = accountId;
     }
 
-    public String getAccountUuid() {
-        return accountUuid;
+    public String getAccountCode() {
+        return accountCode;
     }
 
-    public void setAccountUuid(String accountUuid) {
-        this.accountUuid = accountUuid == null ? null : accountUuid.trim();
+    public void setAccountCode(String accountCode) {
+        this.accountCode = accountCode == null ? null : accountCode.trim();
     }
 
-    public String getCode() {
-        return code;
+    public String getAccountPassword() {
+        return accountPassword;
     }
 
-    public void setCode(String code) {
-        this.code = code == null ? null : code.trim();
+    public void setAccountPassword(String accountPassword) {
+        this.accountPassword = accountPassword == null ? null : accountPassword.trim();
     }
 
-    public String getPassword() {
-        return password;
+    public Integer getAccountEnable() {
+        return accountEnable;
     }
 
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
-    }
-
-    public Integer getAccountState() {
-        return accountState;
-    }
-
-    public void setAccountState(Integer accountState) {
-        this.accountState = accountState;
+    public void setAccountEnable(Integer accountEnable) {
+        this.accountEnable = accountEnable;
     }
 }

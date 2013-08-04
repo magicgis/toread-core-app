@@ -2,6 +2,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="
      http://www.springframework.org/schema/beans 
@@ -13,7 +14,9 @@
      http://www.springframework.org/schema/context 
      http://www.springframework.org/schema/context/spring-context-3.2.xsd
      http://www.springframework.org/schema/security 
-     http://www.springframework.org/schema/security/spring-security-3.1.xsd"
+     http://www.springframework.org/schema/security/spring-security-3.1.xsd
+     http://www.springframework.org/schema/mvc 
+    http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd"
 	default-lazy-init="true">
 	<!-- 定义受环境影响易变的变量 -->
 	<bean
@@ -29,10 +32,6 @@
 			</list>
 		</property>
 	</bean>
-	<!-- 使用annotation 自动注册bean,并保证@Required,@Autowired的属性被注入 -->
-	<context:component-scan base-package="com.toread.core"  >
-		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-	</context:component-scan>
 	
 	<!-- 数据源配置,使用应用内的DBCP数据库连接池 -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
@@ -49,17 +48,15 @@
 		<property name="maxIdleTime" value="1800" />
 		<property name="maxStatements" value="1000" />
 		<!--每60秒检查所有连接池中的空闲连接。Default: 0 -->
-		<property name="idleConnectionTestPeriod" value="60" />
+		<property name="idleConnectionTestPeriod" value="1000" />
 	</bean>
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="typeAliasesPackage" value="com.toread.core.domain" />
+		<property name="mapperLocations" value="classpath:com/toread/core/domain/mapper/**/*.xml"/>
 	</bean>
 	
-  <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-  	<property name="basePackage" value="com.toread.core.mapper" />
-  </bean>
 	
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
@@ -68,5 +65,15 @@
 	<aop:aspectj-autoproxy proxy-target-class="true" expose-proxy="true"/>
 	<!-- 支持文件上传 -->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+	
+	<!-- 消息国际化 -->
+	<bean id="messageSource"
+    class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+  	<property name="basename" value="classpath:org/springframework/security/messages_zh_CN"/>
+	</bean>
+	
+	<!-- 使用annotation 自动注册bean,并保证@Required,@Autowired的属性被注入 -->
+	<context:component-scan base-package="com.toread.core" />
+	<mvc:annotation-driven />  
 </beans>
 

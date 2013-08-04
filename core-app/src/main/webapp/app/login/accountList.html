@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+</head>
+<body>
+ <script src="resources/bootstrap/js/jquery1.9.js"></script>
+ <script src="resources/bootstrap/js/bootstrap.min.js"></script>
+</body>
+<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>账号</th>
+				<th>密码</th>
+				<th>状态</th>
+			</tr>
+		</thead>
+		<tbody>
+		<#list accountList as account>
+			<tr>
+				<td>${account.accountId}</td>
+				<td>${account.accountCode}</td>
+				<td>${account.accountPassword}</td>
+				<td>${account.accountEnable}</td>
+			</tr>
+		</#list>
+		</tbody>
+</table>
+</html>
